@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery Mobile CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <!-- jQuery and jQuery Mobile JS -->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>My Portfolio</h1>
+  </div>
+
+  <div data-role="content">
+    <p>Welcome to my personal mobile portfolio.</p>
+    <ul data-role="listview">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact Info</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- About Me Page -->
+<div data-role="page" id="about">
+  <div data-role="header">
+    <a href="#home" data-icon="home">Home</a>
+    <h1>About Me</h1>
+  </div>
+
+  <div data-role="content">
+    <p>Hello! I'm [Your Name], a passionate developer focused on building smart and useful applications for web and mobile.</p>
+  </div>
+</div>
+
+<!-- Projects Page -->
+<div data-role="page" id="projects">
+  <div data-role="header">
+    <a href="#home" data-icon="home">Home</a>
+    <h1>Projects</h1>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <li><h2>Project A</h2><p>Short description of Project A.</p></li>
+      <li><h2>Project B</h2><p>Short description of Project B.</p></li>
+      <li><h2>Project C</h2><p>Short description of Project C.</p></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Skills Page -->
+<div data-role="page" id="skills">
+  <div data-role="header">
+    <a href="#home" data-icon="home">Home</a>
+    <h1>Skills</h1>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python, Flask</li>
+      <li>React, jQuery</li>
+      <li>SQL, MongoDB</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Contact Info Page -->
+<div data-role="page" id="contact">
+  <div data-role="header">
+    <a href="#home" data-icon="home">Home</a>
+    <h1>Contact Info</h1>
+  </div>
+
+  <div data-role="content">
+    <p>Email: your.email@example.com</p>
+    <p>Phone: +123-456-7890</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">My Profile</a></p>
+  </div>
+</div>
+
+</body>
+</html>

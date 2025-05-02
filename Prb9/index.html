@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Weather App</title>
+</head>
+<body>
+  <h2>Weather App</h2>
+  <input type="text" id="cityInput" placeholder="Enter city">
+  <button onclick="getWeather()">Get Weather</button>
+  <div id="weatherResult"></div>
+
+  <script>
+    const weatherData = {
+      "New York": { temp: 22, humidity: 60, condition: "Sunny" },
+      "London": { temp: 18, humidity: 70, condition: "Cloudy" },
+      "Tokyo": { temp: 25, humidity: 65, condition: "Rainy" },
+      "Mumbai": { temp: 30, humidity: 80, condition: "Humid" }
+    };
+
+    function getWeather() {
+      const city = document.getElementById('cityInput').value;
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '', true);
+      xhr.onload = function() {
+        const data = weatherData[city];
+        if (data) {
+          document.getElementById('weatherResult').innerHTML =
+            `Temp: ${data.temp}°C, Humidity: ${data.humidity}%, Condition: ${data.condition}`;
+        } else {
+          document.getElementById('weatherResult').innerHTML = "City not found.";
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+table {
+    width :100%;
+    border : 1px solid #ddd;
+    
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+#pagination-controls {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App with JSON</title>
+</head>
+<body>
+  <h2>Weather App</h2>
+  <input type="text" id="cityInput" placeholder="Enter city">
+  <button onclick="getWeather()">Get Weather</button>
+  <div id="weatherResult"></div>
+
+  <script>
+    function getWeather() {
+      const city = document.getElementById('cityInput').value.trim();
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'ok.json', true); // fetching local JSON file
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const weatherData = JSON.parse(xhr.responseText);
+          const data = weatherData[city];
+          if (data) {
+            document.getElementById('weatherResult').innerHTML =
+              `Temp: ${data.temp}°C, Humidity: ${data.humidity}%, Condition: ${data.condition}`;
+          } else {
+            document.getElementById('weatherResult').innerHTML = "City not found.";
+          }
+        } else {
+          document.getElementById('weatherResult').innerHTML = "Error loading data.";
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

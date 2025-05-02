@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Products</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- Optional Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Our Products</h1>
+
+        <!-- Category Filter Dropdown -->
+        <div class="d-flex justify-content-end mb-4">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter by Category
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li><a class="dropdown-item filter-btn" href="#" data-category="all">All Categories</a></li>
+                    <li><a class="dropdown-item filter-btn" href="#" data-category="electronics">Electronics</a></li>
+                    <li><a class="dropdown-item filter-btn" href="#" data-category="clothing">Clothing</a></li>
+                    <li><a class="dropdown-item filter-btn" href="#" data-category="home">Home Goods</a></li>
+                    <!-- Add more categories -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="product-grid">
+            <!-- Product Cards will be added here (or hardcoded for simplicity) -->
+
+            <!-- Example Product Card 1 (Electronics) -->
+            <div class="col product-card" data-category="electronics">
+                <div class="card h-100">
+                    <img src="images/laptop.jpg" class="card-img-top" alt="Laptop">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Laptop</h5>
+                        <p class="card-text">High-performance laptop for work and play.</p>
+                        <p class="card-text"><strong>₹65,000</strong></p>
+                    </div>
+                    <div class="card-footer">
+                         <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Product Card 2 (Clothing) -->
+            <div class="col product-card" data-category="clothing">
+                <div class="card h-100">
+                    <img src="images/tshirt.jpg" class="card-img-top" alt="T-Shirt">
+                    <div class="card-body">
+                        <h5 class="card-title">Cotton T-Shirt</h5>
+                        <p class="card-text">Comfortable and stylish cotton t-shirt.</p>
+                         <p class="card-text"><strong>₹799</strong></p>
+                    </div>
+                     <div class="card-footer">
+                         <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Example Product Card 3 (Home) -->
+            <div class="col product-card" data-category="home">
+                <div class="card h-100">
+                    <img src="images/lamp.jpg" class="card-img-top" alt="Desk Lamp">
+                    <div class="card-body">
+                        <h5 class="card-title">Desk Lamp</h5>
+                        <p class="card-text">Adjustable LED desk lamp for your workspace.</p>
+                         <p class="card-text"><strong>₹1,500</strong></p>
+                    </div>
+                    <div class="card-footer">
+                         <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Product Card 4 (Electronics) -->
+            <div class="col product-card" data-category="electronics">
+                <div class="card h-100">
+                    <img src="images/headphone_bs.jpg" class="card-img-top" alt="Headphones">
+                    <div class="card-body">
+                        <h5 class="card-title">Wireless Headphones</h5>
+                        <p class="card-text">Noise-cancelling Bluetooth headphones.</p>
+                         <p class="card-text"><strong>₹4,999</strong></p>
+                    </div>
+                    <div class="card-footer">
+                         <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Add more product cards with appropriate 'data-category' -->
+
+        </div> <!-- End Product Grid -->
+
+    </div> <!-- End Container -->
+
+    <!-- Bootstrap JS Bundle (includes Popper) CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Simple Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const dropdownButton = document.getElementById('categoryDropdown');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+
+                    // Update dropdown button text
+                    dropdownButton.textContent = this.textContent;
+
+                    productCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'block'; // Show card
+                        } else {
+                            card.style.display = 'none'; // Hide card
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
